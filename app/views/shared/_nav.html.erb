@@ -1,13 +1,15 @@
-<div>
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Forms', user_forms_path %>
-  <%= link_to 'Vaccinations', vaccinations_path %>
-  <%= link_to 'Index', pages_index_path %>
-  <% if current_user %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign Up', new_user_registration_path %>
-    <%= link_to 'Login', new_user_session_path %>
-  <% end %>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+  <nav>
+    <%= link_to 'Home', root_path, class: 'btn text-dark' %>
+    <%= link_to 'Forms', user_forms_path, class: 'btn text-dark' %>
+    <%= link_to 'Vaccinations', vaccinations_path, class: 'btn text-dark' %>
+    <%= link_to 'Index', pages_index_path, class: 'btn text-dark' %>
+    <% if !current_user.is_a? GuestUser %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn text-dark' %>
+    <% else %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn text-dark' %>
+      <%= link_to 'Login', new_user_session_path, class: 'btn text-dark' %>
+    <% end %>
+  </nav>
 </div>
 
