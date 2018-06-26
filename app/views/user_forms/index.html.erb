@@ -1,11 +1,17 @@
-<div class="container">
-  <h1>User Forms</h1>
+<div class="container large-marg">
+  <h1 class="mid-marg">User Forms</h1>
 
   <div class="row">
     <div class="col-md-8">
       <% @user_forms.each do |form| %>
-        <div class="marg">
-          <%= link_to form.user.name, form %>
+        <div class="row mid-marg">
+          <div class="col-md-4">
+            <%= link_to form.user.name, form %>
+            <hr />
+          </div>
+          <div class="col-md-4 text-right">
+            <small>Created <%= distance_of_time_in_words(form.created_at, Time.now) %> ago</small>
+          </div>
         </div>
       <% end %>
 
@@ -15,3 +21,4 @@
     </div>
   </div>
 </div>
+

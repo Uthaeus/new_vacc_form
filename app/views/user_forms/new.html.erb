@@ -1,5 +1,11 @@
-<h1>New User Form</h1>
+<div class="container large-marg">
+  <h1>New User Form</h1>
 
-<%= render 'form', user_form: @user_form %>
+  <div class="mid-marg">
+    <%= render 'form', user_form: @user_form %>
+  </div>
 
-<%= link_to 'Back', user_forms_path %>
+  <div class="marg">
+    <%= link_to 'Back', user_forms_path, class: 'btn btn-light' %>
+  </div>
+</div>
