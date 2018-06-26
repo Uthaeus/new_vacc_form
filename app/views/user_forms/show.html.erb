@@ -1,17 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container large-marg">
+  <div class="row">
+    <div class="col-md-8">
+      <% @user_form.vaccs.each do |v| %>
+        <div class='card marg padd'>
+          <div class="row">
+            <div class="col-md-4">
+              <strong>Title:</strong>
+              <%= v.title %>
+            </div>
+            <div class="col-md-8 text-right">
+              <div class="marg">
+                <strong>Received:</strong>
+                <%= v.rec %>
+              </div>
+              <div class="marg">
+                <strong>Expires:</strong>
+                <%= v.exp %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<% @user_form.vaccs.each do |v| %>
-  <p>
-    <strong>Title</strong>
-    <%= v.title %>
-  </p>
-  <p>
-    <strong>Received</strong>
-  </p>
-  <p>
-    <strong>Expires</strong>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_user_form_path(@user_form) %> |
-<%= link_to 'Back', user_forms_path %>
+  <div class="large-marg">
+    <%= link_to 'Edit', edit_user_form_path(@user_form), class: "btn btn-outline-warning" %> |
+    <%= link_to 'Back', user_forms_path, class: 'btn btn-outline-secondary' %> |
+    <%= link_to 'Delete', @user_form, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-outline-danger' %>
+  </div>
+</div>
