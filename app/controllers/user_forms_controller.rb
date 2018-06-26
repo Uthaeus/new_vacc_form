@@ -57,6 +57,7 @@ class UserFormsController < ApplicationController
   # DELETE /user_forms/1.json
   def destroy
     @user_form.destroy
+    
     respond_to do |format|
       format.html { redirect_to user_forms_url, notice: 'User form was successfully destroyed.' }
       format.json { head :no_content }
