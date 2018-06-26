@@ -1,6 +1,14 @@
-<h1>Editing User Form</h1>
+<div class="container large-marg">
+  <div class="mid-marg">
+    <h1>Editing User Form</h1>
+  </div>
 
-<%= render 'form', user_form: @user_form %>
+  <div class="marg">
+    <%= render 'form', user_form: @user_form %>
+  </div>
 
-<%= link_to 'Show', @user_form %> |
-<%= link_to 'Back', user_forms_path %>
+  <div class="marge">
+    <%= link_to 'Show', @user_form, class: 'btn btn-light' %> |
+    <%= link_to 'Back', user_forms_path, class: 'btn btn-light' %>
+  </div>
+</div>

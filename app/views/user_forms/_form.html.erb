@@ -1,34 +1,37 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <%= form_with(model: user_form, local: true) do |f| %>
-        <% if user_form.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(user_form.errors.count, "error") %> prohibited this user_form from being saved:</h2>
 
-            <ul>
-            <% user_form.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_with(model: user_form, local: true) do |f| %>
+      <% if user_form.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user_form.errors.count, "error") %> prohibited this user_form from being saved:</h2>
 
-        <div class="form-group">
-          <% f.fields_for :vaccs do |v| %>
-            <%= render 'vacc_fields', f: v %>
+          <ul>
+          <% user_form.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
-
-          <div>
-            <%= link_to_add_association 'Add Selection Field', f, :vaccs, partial: 'vacc_fields', class: 'btn btn-outline-success btn-sm' %> |
-            <%= link_to_add_association 'Add Write-In Field', f, :vaccs, partial: 'blank_vacc_fields', class: 'btn btn-outlin-success btn-sm' %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit 'Save Form', class: 'btn btn-outline-primary' %>
+          </ul>
         </div>
       <% end %>
-    </div>
+
+      <div class="form-group">
+        <% f.fields_for :vaccs do |v| %>
+          <%= render 'vacc_fields', f: v %>
+        <% end %>
+
+        <div class="marg">
+          <%= link_to_add_association 'Add Selection Field', f, :vaccs, partial: 'vacc_fields', class: 'btn btn-outline-success btn-sm' %> |
+          <%= link_to_add_association 'Add Write-In Field', f, :vaccs, partial: 'blank_vacc_fields', class: 'btn btn-outline-success btn-sm' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        
+      </div>
+
+      <div class="form-group large-marg">
+        <%= f.submit 'Save Form', class: 'btn btn-outline-primary btn-block' %>
+      </div>
+    <% end %>
   </div>
 </div>

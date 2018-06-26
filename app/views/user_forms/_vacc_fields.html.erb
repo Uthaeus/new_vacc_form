@@ -1,14 +1,18 @@
 <div class="form-group nested-fields">
-  <%= f.label :title %>
-  <%= f.text_field :title, class: 'form-control' %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.label :vaccination %>
+      <%= f.collection_select :title, Vaccination.all, :title, :title, { :prompt => 'Select an option' }, { :multiple => false, class: 'form-control'} %>
 
-  <%= f.label :received %>
-  <%= f.date_field :rec, class: 'form-control' %>
+      <%= f.label :received %>
+      <%= f.date_field :rec, class: 'form-control' %>
 
-  <%= f.label :expiration %>
-  <%= f.date_field :exp, class: 'form-control' %>
+      <%= f.label :expiration %>
+      <%= f.date_field :exp, class: 'form-control' %>
+    </div>
 
-  <div>
-    <%= link_to_remove_association 'Remove Vaccination', f, class: 'btn btn-outline-warning btn-sm' %>
+    <div class="col-md-4">
+      <%= link_to_remove_association 'Remove Vaccination', f, class: 'btn btn-outline-warning btn-sm' %>
+    </div>
   </div>
 </div>
