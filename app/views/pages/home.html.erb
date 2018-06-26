@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container large-marg">
+  <div class="row">
+    <div class="col-md-8">
+      <% if current_user.is_a? GuestUser %>
+        <div class="text-center">
+          <h2 class="large-marg">Welcome</h2>
+          <div class="mid-marg">
+            <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-outline-secondary btn-block marg' %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-secondary btn-block marg' %>
+          </div>
+        </div>
+      <% else %>
+        <div class="text-center large-marg">
+          <h2>Welcome, <%= current_user.first_name %></h2>
+          <div class="mid-marg">
+            <%= link_to 'Create new vaccination form', new_user_form_path, class: 'btn btn-outline-info btn-block' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+  </div>
+</div>
