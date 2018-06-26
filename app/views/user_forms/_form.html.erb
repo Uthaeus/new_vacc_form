@@ -20,13 +20,23 @@
         <% end %>
 
         <div class="marg">
-          <%= link_to_add_association 'Add Selection Field', f, :vaccs, partial: 'vacc_fields', class: 'btn btn-outline-success btn-sm' %> |
-          <%= link_to_add_association 'Add Write-In Field', f, :vaccs, partial: 'blank_vacc_fields', class: 'btn btn-outline-success btn-sm' %>
+          <%= link_to_add_association 'Add Selection Field...>>', f, :vaccs, partial: 'vacc_fields', class: 'btn btn-outline-success btn-sm' %> |
+          <%= link_to_add_association 'Add Write-In Field...>>', f, :vaccs, partial: 'blank_vacc_fields', class: 'btn btn-outline-success btn-sm' %>
         </div>
       </div>
 
       <div class="form-group">
-        
+        <div class="row">
+          <div class="col-md-8">
+            <% f.fields_for :form_images do |i| %>
+              <%= render 'image_fields', f: i %>
+            <% end %>
+
+            <div class="marg">
+              <%= link_to_add_association 'Add Image', f, :form_images, partial: 'image_fields', class: 'btn btn-outline-secondary btn-block' %>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="form-group large-marg">

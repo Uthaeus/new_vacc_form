@@ -21,6 +21,11 @@
           </div>
         </div>
       <% end %>
+      <% @user_form.form_images.each do |i| %>
+        <div class="marg">
+          <%= image_tag i.main_image %>
+        </div>
+      <% end %>
     </div>
   </div>
 
