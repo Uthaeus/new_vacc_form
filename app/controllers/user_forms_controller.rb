@@ -15,6 +15,7 @@ class UserFormsController < ApplicationController
   # GET /user_forms/new
   def new
     @user_form = UserForm.new
+    1.times { @user_form.vaccs.build }
   end
 
   # GET /user_forms/1/edit
@@ -25,6 +26,7 @@ class UserFormsController < ApplicationController
   # POST /user_forms.json
   def create
     @user_form = UserForm.new(user_form_params)
+    @user_form.user_id = current_user.id 
 
     respond_to do |format|
       if @user_form.save
@@ -69,6 +71,6 @@ class UserFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_form_params
-      params.require(:user_form).permit(:user_id)
+      params.require(:user_form).permit(:user_id, vaccs_attributes: [:id, :title, :rec, :exp, :_destroy])
     end
 end

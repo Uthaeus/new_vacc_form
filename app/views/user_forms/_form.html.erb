@@ -1,4 +1,4 @@
-<%= form_with(model: user_form, local: true) do |form| %>
+<%= form_with(model: user_form, local: true) do |f| %>
   <% if user_form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_form.errors.count, "error") %> prohibited this user_form from being saved:</h2>
@@ -11,12 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :user_form_user_id %>
+  <div class="form-group">
+    <% f.fields_for :vaccs do |v| %>
+      <%= render 'vacc_fields', f: v %>
+    <% end %>
+
+    <div>
+      <%= link_to_add_association 'Add Selection Field', f, :vaccs, partial: 'vacc_fields', class: 'btn btn-outline-success btn-sm' %> |
+      <%= link_to_add_association 'Add Write-In Field', f, :vaccs, partial: 'blank_vacc_fields', class: 'btn btn-outlin-success btn-sm' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= f.submit 'Save Form', class: 'btn btn-outline-primary' %>
   </div>
 <% end %>

@@ -1,0 +1,14 @@
+<div class="form-group nested-fields">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :received %>
+  <%= f.date_field :rec, class: 'form-control' %>
+
+  <%= f.label :expiration %>
+  <%= f.date_field :exp, class: 'form-control' %>
+
+  <div>
+    <%= link_to_remove_association 'Remove Vaccination', f, class: 'btn btn-outline-warning btn-sm' %>
+  </div>
+</div>

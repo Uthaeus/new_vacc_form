@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @user_form.user %>
-</p>
+<% @user_form.vaccs.each do |v| %>
+  <p>
+    <strong>Title</strong>
+    <%= v.title %>
+  </p>
+  <p>
+    <strong>Received</strong>
+  </p>
+  <p>
+    <strong>Expires</strong>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_form_path(@user_form) %> |
 <%= link_to 'Back', user_forms_path %>
