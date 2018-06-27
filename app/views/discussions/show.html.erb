@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @discussion.title %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mid-marg padd">
+        <div class='row'>
+          <div class="col-md-4">
+            <%= @discussion.title %>
+          </div>
+          <div class="col-md-8">
+            <%= @discussion.body %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
 
-<p>
-  <strong>Body:</strong>
-  <%= @discussion.body %>
-</p>
+    </div>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @discussion.user %>
-</p>
-
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
+  <div class="mid-marg">
+    <%= link_to 'Edit', edit_discussion_path(@discussion), class: 'btn' %> |
+    <%= link_to 'Back', discussions_path, class: 'btn' %>
+  </div>
+</div>

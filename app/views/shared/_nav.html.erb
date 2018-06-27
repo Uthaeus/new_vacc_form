@@ -2,6 +2,7 @@
   <nav>
     <%= link_to 'Home', root_path, class: 'btn text-dark' %>
     <%= link_to 'Index', pages_index_path, class: 'btn text-dark' %>
+    <%= link_to 'Discussions', discussions_path, class: 'btn text-dark' %>
     <% if !current_user.is_a? GuestUser %>
       <%= link_to 'Forms', user_forms_path, class: 'btn text-dark' %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn text-dark' %>

@@ -1,5 +1,9 @@
-<h1>New Discussion</h1>
+<div class="container large-marg">
+  <h1>New Discussion</h1>
 
-<%= render 'form', discussion: @discussion %>
+  <%= render 'form', discussion: @discussion %>
 
-<%= link_to 'Back', discussions_path %>
+  <div class="mid-marg">
+    <%= link_to 'Back', discussions_path, class: 'btn' %>
+  </div>
+</div>
