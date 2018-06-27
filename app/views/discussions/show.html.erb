@@ -6,12 +6,12 @@
         <div class='row'>
           <div class="col-md-4">
             <div class="marg">
-              <%= @discussion.title %>
+              <h3><%= @discussion.title %></h3>
             </div>
             <small>Created <%= distance_of_time_in_words(@discussion.created_at, Time.now) %> ago</small>
           </div>
           <div class="col-md-8">
-            <div class="card padd">
+            <div class="card large-padd">
               <%= @discussion.body %>
             </div>
             <div class="marg text-right">
@@ -21,17 +21,19 @@
         </div>
       </div>
       <hr />
+      <div class="mid-marg col-8">
+        <div class="marg" id="comments" data-discussion-id="<%= @discussion.id %>">
+          <%= render @discussion.comments %>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-
-    </div>
-    <div class="mid-marg">
-      <%= render 'comments/comment_form' %>
-    </div>
-    <div class="marg" id="comments" data-discussion-id="<%= @discussion.id %>">
-      <%= render @discussion.comments %>
+      <div class="mid-marg padd">
+        <%= render 'comments/comment_form' %>
+      </div>
     </div>
   </div>
+  
 
   <div class="large-marg">
     <%= link_to 'Edit', edit_discussion_path(@discussion), class: 'btn' %> |
