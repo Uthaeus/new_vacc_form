@@ -25,6 +25,12 @@
     <div class="col-md-4">
 
     </div>
+    <div class="mid-marg">
+      <%= render 'comments/comment_form' %>
+    </div>
+    <div class="marg" id="comments" data-discussion-id="<%= @discussion.id %>">
+      <%= render @discussion.comments %>
+    </div>
   </div>
 
   <div class="large-marg">

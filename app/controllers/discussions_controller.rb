@@ -9,6 +9,8 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/1
   def show
+    @discussion = Discussion.includes(:comments).find(params[:id])
+    @comment = Comment.new
   end
 
   # GET /discussions/new
