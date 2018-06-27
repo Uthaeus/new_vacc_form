@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   has_many :user_forms, dependent: :destroy
   has_many :discussions, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def first_name
     self.name.split.first 
