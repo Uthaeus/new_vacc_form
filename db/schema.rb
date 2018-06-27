@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180626230851) do
+ActiveRecord::Schema.define(version: 20180627011943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "discussions", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_discussions_on_user_id"
+  end
 
   create_table "form_images", force: :cascade do |t|
     t.text "main_image"
@@ -69,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180626230851) do
     t.index ["user_forms_id"], name: "index_vaccs_on_user_forms_id"
   end
 
+  add_foreign_key "discussions", "users"
   add_foreign_key "form_images", "user_forms", column: "user_forms_id"
   add_foreign_key "user_forms", "users"
   add_foreign_key "vaccs", "user_forms", column: "user_forms_id"
