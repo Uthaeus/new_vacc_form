@@ -2,23 +2,32 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="card mid-marg padd">
+      <div class="mid-marg">
         <div class='row'>
           <div class="col-md-4">
-            <%= @discussion.title %>
+            <div class="marg">
+              <%= @discussion.title %>
+            </div>
+            <small>Created <%= distance_of_time_in_words(@discussion.created_at, Time.now) %> ago</small>
           </div>
           <div class="col-md-8">
-            <%= @discussion.body %>
+            <div class="card padd">
+              <%= @discussion.body %>
+            </div>
+            <div class="marg text-right">
+              <small><%= @discussion.user.first_name %></small>
+            </div>
           </div>
         </div>
       </div>
+      <hr />
     </div>
     <div class="col-md-4">
 
     </div>
   </div>
 
-  <div class="mid-marg">
+  <div class="large-marg">
     <%= link_to 'Edit', edit_discussion_path(@discussion), class: 'btn' %> |
     <%= link_to 'Back', discussions_path, class: 'btn' %>
   </div>

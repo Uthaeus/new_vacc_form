@@ -23,6 +23,7 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   def create
     @discussion = Discussion.new(discussion_params)
+    @discussion.user_id = current_user.id 
 
     if @discussion.save
       redirect_to @discussion, notice: 'Discussion was successfully created.'
