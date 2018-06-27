@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="large-marg text-center">
+    <h1 class="mid-marg padd">
+      <%= @vaccination.title %>
+    </h1>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @vaccination.title %>
-</p>
-
-<%= link_to 'Edit', edit_vaccination_path(@vaccination) %> |
-<%= link_to 'Back', vaccinations_path %>
+  <div class='mid-marg'>
+    <%= link_to 'Edit', edit_vaccination_path(@vaccination), class: 'btn btn-outline-dark' %> |
+    <%= link_to 'Back', vaccinations_path, class: 'btn btn-outline-dark' %>
+  </div>
+</div>

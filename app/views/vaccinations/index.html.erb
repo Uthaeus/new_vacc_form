@@ -1,27 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Vaccinations</h1>
+  <h1 class="mid-marg">Vaccinations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @vaccinations.each do |vaccination| %>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= vaccination.title %></td>
-        <td><%= link_to 'Show', vaccination %></td>
-        <td><%= link_to 'Edit', edit_vaccination_path(vaccination) %></td>
-        <td><%= link_to 'Destroy', vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @vaccinations.each do |vaccination| %>
+        <tr>
+          <td><%= vaccination.title %></td>
+          <td><%= link_to 'Show', vaccination %></td>
+          <td><%= link_to 'Edit', edit_vaccination_path(vaccination) %></td>
+          <td><%= link_to 'Destroy', vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Vaccination', new_vaccination_path %>
+  <br>
+
+  <div class="mid-marg">
+    <%= link_to 'New Vaccination', new_vaccination_path, class: 'btn btn-outline-info' %>
+  </div>
+</div>

@@ -4,7 +4,11 @@ class UserFormsController < ApplicationController
   # GET /user_forms
   # GET /user_forms.json
   def index
-    @user_forms = UserForm.all
+    if current_user.role == :admin
+      @user_forms = UserForm.all
+    else
+      @user_forms = UserForm.select { |u| u.user_id == current_user.id }
+    end
   end
 
   # GET /user_forms/1

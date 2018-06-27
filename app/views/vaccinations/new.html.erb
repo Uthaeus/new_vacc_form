@@ -1,5 +1,9 @@
-<h1>New Vaccination</h1>
+<div class="container large-marg">
+  <h1 class="mid-marg">New Vaccination</h1>
 
-<%= render 'form', vaccination: @vaccination %>
+  <%= render 'form', vaccination: @vaccination %>
 
-<%= link_to 'Back', vaccinations_path %>
+  <div class="large-marg">
+    <%= link_to 'Back', vaccinations_path, class: 'btn btn-outline-secondary' %>
+  </div>
+</div>
