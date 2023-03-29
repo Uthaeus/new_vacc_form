@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :players
+  resources :boards
   resources :comments
   resources :discussions
   resources :user_forms
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'pages/index'
+  get 'pages/tictac'
 
   mount ActionCable.server => '/cable'
 end

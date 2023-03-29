@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627021121) do
+ActiveRecord::Schema.define(version: 20180627173817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -42,6 +47,13 @@ ActiveRecord::Schema.define(version: 20180627021121) do
     t.bigint "user_forms_id"
     t.index ["user_form_id"], name: "index_form_images_on_user_form_id"
     t.index ["user_forms_id"], name: "index_form_images_on_user_forms_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.string "marker"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_forms", force: :cascade do |t|
